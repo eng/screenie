@@ -1,6 +1,5 @@
 # Usage:
-# npm install request
-# npm install exec-sync
+# Install webkit2png (http://www.paulhammond.org/webkit2png/) and ensure it's in your PATH
 # coffee screenie.coffee
 
 fs = require('fs')
@@ -33,6 +32,9 @@ request "http://golearntocode.com/kiei924-winter15-ev/users.json", (error, respo
   for username in usernames
     console.log "Capturing screenie for #{username}"
     user_dir = "pages/#{username}"
-    exec "webkit2png -T -D screenies/ -o #{username} #{user_dir}/index.html"
+    index_filename = "#{user_dir}/index.html"
+    # only screencap if there's an index.html
+    if fs.existsSync(index_filename)
+      exec "webkit2png -T -D screenies/ -o #{username} #{index_filename}"
 
   fs.writeFile('screenies.json', JSON.stringify(usernames))
