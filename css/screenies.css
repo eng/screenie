@@ -1,0 +1,18 @@
+body {
+  font-family: 'helvetica neue', arial, sans-serif;
+  font-weight: 300;
+  background-image: url(../images/2048.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+h1 {
+  font-size: 50px;
+  color: #fff;
+}
+.thumbnail {
+  width: 242px;
+}
+.item img {
+  width: 242px;
+}
